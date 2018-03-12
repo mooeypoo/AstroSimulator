@@ -21,6 +21,11 @@ describe( 'Julian Day operations', function () {
 				msg: 'Known JDN for November 16th, 1858 12:00 UTC'
 			},
 			{
+				date: [ 1999, 12, 31 ],
+				expected: 2451544,
+				msg: 'Known JDN for December 31st, 1999 12:00 UTC'
+			},
+			{
 				date: [ 1858, 11, 18, 0, 0 ],
 				// A day and a half from Nov 16th at noon
 				expected: 2400001.5,
@@ -81,7 +86,7 @@ describe( 'Julian Day operations', function () {
 				msg: 'JDN for Jan 2, 2000 is 1'
 			},
 			{
-				date: [ 1999, 1, 31 ],
+				date: [ 1999, 12, 31 ],
 				expected: -1,
 				msg: 'JDN for Dec 31, 1999 is -1'
 			}
