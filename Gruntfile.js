@@ -3,6 +3,7 @@ module.exports = function Gruntfile( grunt ) {
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
 	grunt.loadNpmTasks( 'grunt-eslint' );
 	grunt.loadNpmTasks( 'grunt-stylelint' );
+	grunt.loadNpmTasks( 'grunt-mocha-test' );
 
 	grunt.initConfig( {
 		eslint: {
@@ -22,10 +23,18 @@ module.exports = function Gruntfile( grunt ) {
 				'static/**/*.css',
 				'!static/lib/**'
 			]
+		},
+		mochaTest: {
+			test: {
+				options: {
+					reporter: 'spec'
+				},
+				src: [ 'test/*.js' ]
+			}
 		}
 	} );
 
 	grunt.registerTask( 'lint', [ 'eslint', 'stylelint' ] );
-	grunt.registerTask( 'test', 'lint' );
+	grunt.registerTask( 'test', [ 'lint', 'mochaTest' ] );
 	grunt.registerTask( 'default', 'test' );
 };

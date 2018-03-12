@@ -86,8 +86,6 @@ describe( 'Julian Day operations', function () {
 				msg: 'JDN for Dec 31, 1999 is -1'
 			}
 		];
-		console.log( '1/1/2000', calcJulian.getJDN( 2000, 1, 1 ) );
-		console.log( '1/31/1999', calcJulian.getJDN( 1999, 1, 31 ) );
 		cases.forEach( ( caseData ) => {
 			it( caseData.msg, () => {
 				assert.equal(
