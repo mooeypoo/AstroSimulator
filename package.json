@@ -4,7 +4,9 @@
 	"description": "A Web-Based, Open-Source, Extendible Platform for Creating Custom Solar System Simulations",
 	"main": "index.js",
 	"scripts": {
-		"test": "grunt test"
+		"test": "grunt test",
+		"cover": "istanbul cover _mocha",
+		"coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
 	},
 	"repository": "https://github.com/mooeypoo/AstroSimulator",
 	"bugs": "https://github.com/mooeypoo/AstroSimulator/issues",
@@ -22,15 +24,18 @@
 	},
 	"devDependencies": {
 		"chai": "^4.1.2",
-		"mocha": "^5.0.1",
-		"grunt": "^1.0.2",
-		"stylelint": "8.2.0",
+		"coveralls": "^3.0.0",
 		"eslint-config-wikimedia": "^0.5.0",
-		"stylelint-config-wikimedia": "0.4.2",
-		"grunt-mocha-test": "^0.13.3",
+		"grunt": "^1.0.2",
 		"grunt-contrib-watch": "1.0.0",
 		"grunt-eslint": "20.1.0",
-		"grunt-stylelint": "0.9.0"
+		"grunt-mocha-test": "^0.13.3",
+		"grunt-stylelint": "0.9.0",
+		"istanbul": "^0.4.5",
+		"mocha": "^5.0.1",
+		"mocha-lcov-reporter": "^1.3.0",
+		"stylelint": "8.2.0",
+		"stylelint-config-wikimedia": "0.4.2"
 	},
 	"dependencies": {
 		"npm": "^5.7.1"
