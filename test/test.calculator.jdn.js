@@ -67,4 +67,34 @@ describe( 'Julian Day operations', function () {
 			} );
 		} );
 	} );
+
+	describe( 'J2000 calculations', function () {
+		const cases = [
+			{
+				date: [ 2000, 1, 1 ],
+				expected: 0,
+				msg: 'JDN for 1/1/2000 is 0'
+			},
+			{
+				date: [ 2000, 1, 2 ],
+				expected: 1,
+				msg: 'JDN for Jan 2, 2000 is 1'
+			},
+			{
+				date: [ 1999, 1, 31 ],
+				expected: -1,
+				msg: 'JDN for Dec 31, 1999 is -1'
+			}
+		];
+		console.log( '1/1/2000', calcJulian.getJDN( 2000, 1, 1 ) );
+		console.log( '1/31/1999', calcJulian.getJDN( 1999, 1, 31 ) );
+		cases.forEach( ( caseData ) => {
+			it( caseData.msg, () => {
+				assert.equal(
+					calcJulian.getJ2000.apply( null, caseData.date ),
+					caseData.expected
+				);
+			} );
+		} );
+	} );
 } );
